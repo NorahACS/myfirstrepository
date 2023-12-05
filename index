@@ -15,7 +15,7 @@
     }
 
     th {
-      background-color: #FFBCD5;
+      background-color: #FFBCD8;
     }
 
     tr:nth-child(even) {
@@ -29,7 +29,7 @@ h2{
 </head>
 <body>
 
-<h2>Employee Information</h2>
+<h2>Company Employee Information</h2>
 
 <table id="sumTable">
   <thead>
