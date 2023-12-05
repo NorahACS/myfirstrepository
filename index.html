@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #FFBCD8;
+    }
+
+    tr:nth-child(even) {
+      background-color: #FFEBF2;
+    }
+h2{
+  font-family: Arial, sans-serif;
+  color: #0C070E
+}
+  </style>
+</head>
+<body>
+
+<h2>Company Employee Information</h2>
+
+<table id="sumTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Department</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+    <th>Total Salaries</th>
+    <th></th>
+    <th></th>
+    <th><span id="totalSum">0</span></th>
+      </tr>
+    </tfoot>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>Developer</td>
+      <td>Engineering</td>
+      <td>80000</td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>Designer</td>
+      <td>Markting</td>
+      <td>75000</td>
+    </tr>
+    <tr>
+      <td>Mike Johnson</td>
+      <td>HR Manager</td>
+      <td>HR</td>
+      <td>150000</td>
+    </tr>
+     <tr>
+      <td>Emma Charles</td>
+      <td>Sales Representative</td>
+      <td>Sales</td>
+      <td>400000</td>
+    </tr>
+      <tr>
+      <td>Sara Stone</td>
+      <td>Recruiter</td>
+      <td>HR</td>
+      <td>120000</td>
+    </tr>
+  </tbody>
+</table>
+<script>
+
+ // Function to calculate the sum of integers in the table
+    function calculateTableSum() {
+        const table = document.getElementById('sumTable');
+        let totalSum = 0;
+
+        // Iterate through rows and cells to calculate the sum
+        for (let i = 0; i < table.rows.length; i++) {
+            for (let j = 0; j < table.rows[i].cells.length; j++) {
+                // Parse the cell content as an integer
+                const cellValue = parseInt(table.rows[i].cells[j].textContent, 10);
+
+                // Check if the parsed value is a number
+                if (!isNaN(cellValue)) {
+                    // Accumulate the value to the total sum
+                    totalSum += cellValue;
+                }
+            }
+        }
+
+        return totalSum;
+    }
+
+    // Update the total sum in the HTML
+    document.getElementById('totalSum').textContent = calculateTableSum();
+</script>
+</body>
